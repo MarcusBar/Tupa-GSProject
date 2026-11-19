@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entre em contato com a equipe do Tupã: nome, e-mail, assunto e mensagem.">
+    <meta name="theme-color" content="#061a3b">
+    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/contato.css">
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/contato.js" defer></script>
+    <title>Contato | Tupã</title>
+</head>
+<body>
+    <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho" id="cabecalho">
+        <nav class="navegacao" aria-label="Navegação principal">
+            <a href="index.html" class="logo">
+                <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+                <span class="icone-menu"></span>
+            </button>
+
+            <ul class="menu" id="menu-principal">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contato.html" aria-current="page">Contato</a></li>
+                <li><a href="mapa.html" class="botao">Ver mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section class="apresentacao">
+            <p class="etiqueta">Fale conosco</p>
+            <h1>Contato</h1>
+            <p>Tem uma sugestão, dúvida ou quer saber mais sobre o Tupã? Escreva para a nossa equipe.</p>
+        </section>
+
+        <section class="area-contato">
+            <form class="formulario" id="formulario-contato" aria-labelledby="titulo-contato">
+                <h2 id="titulo-contato">Envie uma mensagem</h2>
+
+                <p class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="name">
+                    <small class="campo-erro" id="erro-nome" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email">
+                    <small class="campo-erro" id="erro-email" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" name="assunto" placeholder="Sobre o que você quer falar?">
+                    <small class="campo-erro" id="erro-assunto" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva a sua mensagem aqui"></textarea>
+                    <small class="campo-erro" id="erro-mensagem" role="alert"></small>
+                </p>
+
+                <button type="button" class="botao" onclick="enviarContato()">Enviar mensagem</button>
+
+                <output class="aviso" id="aviso" hidden></output>
+            </form>
+
+            <aside class="canais cartao">
+                <h2>Onde nos encontrar</h2>
+                <address>
+                    <ul>
+                        <li>
+                            <span class="canal-titulo">E-mail</span>
+                            <a href="mailto:marcus.alberes@gmail.com">marcus.alberes@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="canal-titulo">Equipe</span>
+                            <a href="integrantes.html">GitHub e LinkedIn de cada integrante</a>
+                        </li>
+                        <li>
+                            <span class="canal-titulo">Projeto</span>
+                            <a href="sobre.html">Conheça a proposta do Tupã</a>
+                        </li>
+                    </ul>
+                </address>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <section class="rodape-marca">
+            <a href="index.html" class="logo">
+                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+            <p>Lixeiras conectadas para uma cidade mais limpa e com menos alagamentos.</p>
+        </section>
+
+        <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+            <h2>Navegue</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <address class="rodape-contato">
+            <h2>Contato</h2>
+            <ul>
+                <li><a href="contato.html">Fale com a equipe</a></li>
+                <li><a href="integrantes.html">GitHub e LinkedIn dos integrantes</a></li>
+            </ul>
+        </address>
+
+        <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadastre-se no Tupã com nome completo, CPF e telefone para relatar ocorrências de lixo.">
+    <meta name="theme-color" content="#061a3b">
+    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/cadastro.css">
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/cadastro.js" defer></script>
+    <title>Cadastro | Tupã</title>
+</head>
+<body>
+    <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho" id="cabecalho">
+        <nav class="navegacao" aria-label="Navegação principal">
+            <a href="index.html" class="logo">
+                <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+                <span class="icone-menu"></span>
+            </button>
+
+            <ul class="menu" id="menu-principal">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="mapa.html" class="botao">Ver mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section class="apresentacao">
+            <p class="etiqueta">Cadastro</p>
+            <h1>Faça parte da cidade conectada</h1>
+            <p>Cadastre-se para relatar lixeiras danificadas, lugares sem lixeira e descarte irregular.</p>
+        </section>
+
+        <section class="area-cadastro">
+            <article class="beneficios">
+                <h2>Por que se cadastrar?</h2>
+                <ul>
+                    <li>
+                        <h3>Seu relato vira dado</h3>
+                        <p>Cada ocorrência ajuda a mostrar onde o lixo mais causa problemas.</p>
+                    </li>
+                    <li>
+                        <h3>Acompanhe o que enviou</h3>
+                        <p>Veja a lista das suas ocorrências na página de relatos.</p>
+                    </li>
+                    <li>
+                        <h3>Só o necessário</h3>
+                        <p>Pedimos apenas nome completo, CPF e telefone. Neste exemplo, nada é salvo nem enviado.</p>
+                    </li>
+                </ul>
+            </article>
+
+            <form class="formulario" id="formulario-cadastro" aria-labelledby="titulo-cadastro">
+                <h2 id="titulo-cadastro">Criar cadastro</h2>
+
+                <p class="campo">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Como está no seu documento" autocomplete="name">
+                    <small class="campo-erro" id="erro-nome" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="Somente números" inputmode="numeric" maxlength="11" autocomplete="off">
+                    <small class="campo-erro" id="erro-cpf" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" name="telefone" placeholder="DDD + número, só números" inputmode="tel" maxlength="11" autocomplete="tel">
+                    <small class="campo-erro" id="erro-telefone" role="alert"></small>
+                </p>
+
+                <button type="button" class="botao" onclick="cadastrar()">Cadastrar</button>
+
+                <output class="aviso" id="aviso" hidden></output>
+            </form>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <section class="rodape-marca">
+            <a href="index.html" class="logo">
+                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+            <p>Lixeiras conectadas para uma cidade mais limpa e com menos alagamentos.</p>
+        </section>
+
+        <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+            <h2>Navegue</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <address class="rodape-contato">
+            <h2>Contato</h2>
+            <ul>
+                <li><a href="contato.html">Fale com a equipe</a></li>
+                <li><a href="integrantes.html">GitHub e LinkedIn dos integrantes</a></li>
+            </ul>
+        </address>
+
+        <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
+    </footer>
+</body>
+</html>
