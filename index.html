@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tupã monitora o lixo de São Paulo com sensores IoT e mostra tudo num mapa vivo, para a chuva escoar e a cidade seguir limpa.">
+    <meta name="theme-color" content="#061a3b">
+    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <title>Tupã | Lixeiras conectadas, cidade sem alagamento</title>
+</head>
+<body>
+    <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho" id="cabecalho">
+        <nav class="navegacao" aria-label="Navegação principal">
+            <a href="index.html" class="logo">
+                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+                <span class="icone-menu"></span>
+            </button>
+
+            <ul class="menu" id="menu-principal">
+                <li><a href="pages/sobre.html">Sobre</a></li>
+                <li><a href="pages/ocorrencia.html">Ocorrência</a></li>
+                <li><a href="pages/cadastro.html">Cadastro</a></li>
+                <li><a href="pages/integrantes.html">Integrantes</a></li>
+                <li><a href="pages/faq.html">FAQ</a></li>
+                <li><a href="pages/contato.html">Contato</a></li>
+                <li><a href="pages/mapa.html" class="botao">Ver mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section class="abertura">
+            <h1>Cada lixeira conectada evita um bueiro entupido.</h1>
+            <p>Tupã monitora o lixo de São Paulo com sensores e mostra tudo num mapa vivo, para a chuva escoar e a cidade seguir limpa.</p>
+            <a href="pages/mapa.html" class="botao botao-grande">Abrir mapa ao vivo</a>
+
+            <figure class="previa-mapa">
+                <ul class="mapa" aria-label="Prévia do mapa com lixeiras vazias, quase cheias e cheias">
+                    <li class="ponto estado-vazia"></li>
+                    <li class="ponto estado-quase-cheia"></li>
+                    <li class="ponto estado-cheia"></li>
+                    <li class="ponto estado-vazia"></li>
+                    <li class="ponto estado-vazia"></li>
+                    <li class="ponto estado-quase-cheia"></li>
+                </ul>
+
+                <figcaption>
+                    <p class="cartao-mapa">
+                        <strong>Lixeira Av. Paulista</strong>
+                        <span>Cheia · coletar agora</span>
+                    </p>
+
+                    <ul class="legenda" aria-label="Legenda do mapa">
+                        <li class="estado-vazia">Vazia</li>
+                        <li class="estado-quase-cheia">Quase cheia</li>
+                        <li class="estado-cheia">Cheia</li>
+                    </ul>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="como-funciona" id="como-funciona">
+            <header class="titulo-secao">
+                <p class="etiqueta">Como funciona</p>
+                <h2>Do sensor ao mapa em três passos</h2>
+                <p>Cada lixeira avisa sozinha quando está quase cheia. Quem cuida da cidade enxerga tudo em um só lugar.</p>
+            </header>
+
+            <ol class="passos">
+                <li class="cartao">
+                    <h3>O sensor mede</h3>
+                    <p>Um sensor ultrassônico dentro da lixeira calcula o quanto ela já encheu. Outro, instalado no bueiro, percebe quando o lixo começa a acumular.</p>
+                </li>
+                <li class="cartao">
+                    <h3>A rede envia</h3>
+                    <p>Um microcontrolador ESP32 manda a localização e o nível por LoRaWAN, uma rede de longo alcance e baixo consumo de energia.</p>
+                </li>
+                <li class="cartao">
+                    <h3>O mapa avisa</h3>
+                    <p>O painel mostra a situação de cada lixeira, recebe relatos dos moradores e desenha a rota mais curta para o caminhão de coleta.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="sensores" id="sensores">
+            <header class="titulo-secao">
+                <p class="etiqueta">Sensores</p>
+                <h2>Quando a lixeira enche, o Tupã chama o caminhão</h2>
+                <p>Digite o nível de lixo (de 0 a 100) no campo ao lado, clique em "Ver estado" e veja como a lixeira muda conforme o nível medido pelo sensor.</p>
+            </header>
+
+            <form class="simulador cartao" aria-label="Simulador de sensor de lixeira">
+                <p class="campo">
+                    <label for="nivel-lixeira">Nível de lixo na lixeira (%)</label>
+                    <input type="number" id="nivel-lixeira" min="0" max="100" value="35">
+                </p>
+
+                <button type="button" class="botao" onclick="simularNivel()">Ver estado</button>
+
+                <meter id="medidor" min="0" max="100" low="50" high="80" optimum="0" value="35">35%</meter>
+
+                <output class="simulador-resultado estado-vazia" id="resultado-simulador">
+                    <strong>35%</strong> · Vazia, sem coleta por enquanto
+                </output>
+            </form>
+
+            <ul class="ficha-tecnica">
+                <li class="cartao">
+                    <h3>Sensor na lixeira</h3>
+                    <p>Mede o nível de lixo e envia a localização. A coleta passa a ser feita pela necessidade, e não pelo relógio.</p>
+                </li>
+                <li class="cartao">
+                    <h3>Sensor no bueiro</h3>
+                    <p>Fica dentro da rede de drenagem e dá o alerta de manutenção antes da chuva chegar.</p>
+                </li>
+                <li class="cartao">
+                    <h3>Custo estimado</h3>
+                    <p>De R$ 80 a R$ 180 por sensor. Um gateway LoRaWAN, de R$ 1.500 a R$ 3.000, cobre vários quilômetros.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="numeros">
+            <header class="titulo-secao">
+                <p class="etiqueta">Por que importa</p>
+                <h2>O lixo no lugar errado custa caro</h2>
+            </header>
+
+            <ul class="lista-numeros">
+                <li>
+                    <strong class="numero">até 50%</strong>
+                    <p>dos alagamentos em chuvas moderadas podem ser agravados por bocas de lobo entupidas (estimativa de 30% a 50%).</p>
+                </li>
+                <li>
+                    <strong class="numero">5×</strong>
+                    <p>é quanto a limpeza preventiva de bueiros pode custar menos que o prejuízo de uma enchente.</p>
+                </li>
+                <li>
+                    <strong class="numero">2,4 mi t</strong>
+                    <p>de lixo eletrônico por ano: o Brasil é o 5º maior gerador do mundo.</p>
+                </li>
+                <li>
+                    <strong class="numero">&lt; 3%</strong>
+                    <p>é quanto desse lixo eletrônico o país recicla.</p>
+                </li>
+            </ul>
+
+            <p class="nota-fonte">Estimativas levantadas na pesquisa da equipe.</p>
+        </section>
+
+        <section class="atalhos-secao">
+            <header class="titulo-secao">
+                <p class="etiqueta">Comece por aqui</p>
+                <h2>Acesse as principais áreas do site</h2>
+            </header>
+
+            <ul class="atalhos">
+                <li>
+                    <a href="pages/mapa.html">
+                        <h3>Mapa de lixeiras</h3>
+                        <p>Painel administrativo com níveis, rotas e ocorrências.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/ocorrencia.html">
+                        <h3>Relatar ocorrência</h3>
+                        <p>Avise sobre lixeira danificada ou lugar sem lixeira.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/cadastro.html">
+                        <h3>Fazer cadastro</h3>
+                        <p>Crie sua conta para acompanhar seus relatos.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="pages/sobre.html">
+                        <h3>Conhecer o projeto</h3>
+                        <p>Problema, objetivo e a proposta da nossa equipe.</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <section class="rodape-marca">
+            <a href="index.html" class="logo">
+                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+            <p>Lixeiras conectadas para uma cidade mais limpa e com menos alagamentos.</p>
+        </section>
+
+        <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+            <h2>Navegue</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="pages/sobre.html">Sobre</a></li>
+                <li><a href="pages/mapa.html">Mapa</a></li>
+                <li><a href="pages/ocorrencia.html">Ocorrência</a></li>
+                <li><a href="pages/cadastro.html">Cadastro</a></li>
+                <li><a href="pages/integrantes.html">Integrantes</a></li>
+                <li><a href="pages/faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <address class="rodape-contato">
+            <h2>Contato</h2>
+            <ul>
+                <li><a href="pages/contato.html">Fale com a equipe</a></li>
+                <li><a href="pages/integrantes.html">GitHub e LinkedIn dos integrantes</a></li>
+            </ul>
+        </address>
+
+        <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
+    </footer>
+</body>
+</html>

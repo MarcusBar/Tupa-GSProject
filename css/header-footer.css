@@ -1,0 +1,258 @@
+/* =====================================================
+   HEADER-FOOTER.CSS - cabeçalho (menu) e rodapé
+   Iguais em todas as páginas.
+   ===================================================== */
+
+/* ===== CABEÇALHO ====== */
+
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(6, 26, 59, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(110, 160, 255, 0.1);
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  max-width: calc(var(--largura-maxima) + 2 * var(--espaco-pagina));
+  min-height: 5rem;
+  margin-inline: auto;
+  padding: 0.8rem var(--espaco-pagina);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.logo img {
+  width: 1.55rem;
+  height: auto;
+}
+
+/* ===== MENU (computador) ====== */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.menu a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--texto-suave);
+  transition: color 0.2s ease;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  color: var(--texto);
+}
+
+.menu a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--azul);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.5rem;
+}
+
+/* O botão "Ver mapa" mantém a aparência de botão dentro do menu */
+
+.menu .botao {
+  margin-left: 0.6rem;
+  padding: 0.7rem 1.6rem;
+  font-size: 0.95rem;
+  color: var(--azul-escuro);
+}
+
+.menu .botao:hover {
+  color: var(--azul-escuro);
+}
+
+/* Botão hambúrguer: só aparece no celular e no tablet */
+
+.botao-menu {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  background-color: var(--cartao);
+  cursor: pointer;
+}
+
+.icone-menu,
+.icone-menu::before,
+.icone-menu::after {
+  display: block;
+  width: 1.3rem;
+  height: 2px;
+  margin-inline: auto;
+  border-radius: 2px;
+  background-color: var(--texto);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.icone-menu::before,
+.icone-menu::after {
+  content: "";
+  position: relative;
+}
+
+.icone-menu::before {
+  top: -0.45rem;
+}
+
+.icone-menu::after {
+  top: 0.35rem;
+}
+
+/* Quando o menu está aberto, o hambúrguer vira um X */
+
+.menu-aberto .icone-menu {
+  background-color: transparent;
+}
+
+.menu-aberto .icone-menu::before {
+  top: -2px;
+  transform: rotate(45deg);
+}
+
+.menu-aberto .icone-menu::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* ===== RODAPÉ ====== */
+
+.rodape {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.3fr;
+  gap: 2.5rem;
+  max-width: calc(var(--largura-maxima) + 2 * var(--espaco-pagina));
+  margin: 3rem auto 0;
+  padding: 3.5rem var(--espaco-pagina) 0;
+  border-top: 1px solid var(--borda);
+  color: var(--texto-suave);
+}
+
+.rodape-marca p {
+  max-width: 36ch;
+  margin-top: 1rem;
+  font-size: 0.92rem;
+}
+
+.rodape .logo {
+  color: var(--texto);
+}
+
+.rodape h2 {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.rodape ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.rodape address {
+  font-style: normal;
+}
+
+.rodape a {
+  font-size: 0.92rem;
+  transition: color 0.2s ease;
+}
+
+.rodape a:hover {
+  color: var(--azul);
+}
+
+.rodape-base {
+  grid-column: 1 / -1;
+  padding: 1.5rem 0 2rem;
+  border-top: 1px solid rgba(110, 160, 255, 0.12);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+/* ===== RESPONSIVO ====== */
+
+@media (max-width: 960px) {
+  .botao-menu {
+    display: block;
+  }
+
+  /* O menu vira um painel que desce embaixo do cabeçalho */
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.8rem var(--espaco-pagina) 1.5rem;
+    border-bottom: 1px solid var(--borda);
+    background-color: var(--fundo);
+    box-shadow: 0 24px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .menu-aberto .menu {
+    display: flex;
+  }
+
+  .menu li {
+    border-bottom: 1px solid rgba(110, 160, 255, 0.1);
+  }
+
+  .menu a {
+    display: block;
+    padding: 1rem 0.2rem;
+    font-size: 1.05rem;
+  }
+
+  .menu li:last-child {
+    border-bottom: 0;
+    padding-top: 1rem;
+  }
+
+  .menu .botao {
+    margin-left: 0;
+    padding: 0.95rem 1.5rem;
+    text-align: center;
+  }
+
+  .rodape {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rodape-marca {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .rodape {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
