@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Conheça o projeto Tupã e sua proposta de gestão inteligente de resíduos urbanos."
+    />
+
+    <meta name="theme-color" content="#061a3b" />
+
+    <link
+      rel="icon"
+      href="../assets/imagens/logo-tupa.svg"
+      type="image/svg+xml"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/header-footer.css" />
+    <link rel="stylesheet" href="../css/sobre.css" />
+
+    <script src="../js/menu.js" defer></script>
+
+    <title>Tupã | Sobre o projeto</title>
+  </head>
+  <body>
+    <a href="#conteudo" class="pular-conteudo"> Pular para o conteúdo </a>
+    <header class="cabecalho" id="cabecalho">
+      <nav class="navegacao" aria-label="Navegação principal">
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/imagens/logo-tupa.svg"
+            alt=""
+            width="25"
+            height="31"
+          />
+          Tupã
+        </a>
+        <button
+          type="button"
+          class="botao-menu"
+          id="botao-menu"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          aria-label="Abrir ou fechar menu"
+        >
+          <span class="icone-menu"></span>
+        </button>
+        <ul class="menu" id="menu-principal">
+          <li>
+            <a href="sobre.html" aria-current="page">Sobre</a>
+          </li>
+
+          <li><a href="ocorrencia.html">Ocorrência</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="integrantes.html">Integrantes</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contato.html">Contato</a></li>
+
+          <li>
+            <a href="mapa.html" class="botao">Ver mapa</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="conteudo">
+      <section class="apresentacao">
+        <p class="etiqueta">Sobre o projeto</p>
+
+        <h1>Tecnologia para uma cidade que respira.</h1>
+
+        <p>
+          O Tupã é uma proposta de gestão inteligente de resíduos urbanos que
+          conecta monitoramento, planejamento da coleta e participação cidadã
+          para contribuir com uma São Paulo mais limpa e resiliente.
+        </p>
+      </section>
+
+      <section class="sobre-contexto" aria-label="Problema e objetivo">
+        <article class="cartao">
+          <p class="etiqueta">O problema</p>
+
+          <h2>O lixo não termina na lixeira.</h2>
+
+          <p>
+            Quando uma lixeira transborda, os resíduos podem chegar às ruas e
+            aos bueiros, dificultando o escoamento da água da chuva. A falta de
+            informações sobre a lotação também dificulta o planejamento da
+            coleta.
+          </p>
+        </article>
+
+        <article class="cartao">
+          <p class="etiqueta">Nosso objetivo</p>
+
+          <h2>Prevenir em vez de apenas reagir.</h2>
+
+          <p>
+            Queremos apoiar as equipes de limpeza urbana com informações sobre
+            lixeiras e ocorrências, priorizar pontos críticos e promover a
+            participação dos moradores.
+          </p>
+        </article>
+      </section>
+
+      <section class="sobre-solucao">
+        <header class="titulo-secao">
+          <p class="etiqueta">Nossa proposta</p>
+
+          <h2>Da informação à ação.</h2>
+
+          <p>Três pilares conectam cidadãos, tecnologia e gestão urbana.</p>
+        </header>
+
+        <ol class="sobre-pilares">
+          <li class="cartao">
+            <span class="sobre-numero" aria-hidden="true">01</span>
+
+            <h3>Monitoramento inteligente</h3>
+
+            <p>
+              A proposta prevê sensores ultrassônicos nas lixeiras e
+              monitoramento de bueiros, com comunicação por ESP32 e LoRaWAN,
+              para identificar situações que exigem atenção.
+            </p>
+          </li>
+
+          <li class="cartao">
+            <span class="sobre-numero" aria-hidden="true">02</span>
+
+            <h3>Coleta orientada por dados</h3>
+
+            <p>
+              Um painel com a localização e a situação das lixeiras apoiaria as
+              equipes na priorização dos atendimentos e no planejamento das
+              rotas de coleta.
+            </p>
+          </li>
+
+          <li class="cartao">
+            <span class="sobre-numero" aria-hidden="true">03</span>
+
+            <h3>Participação cidadã</h3>
+
+            <p>
+              Os moradores poderão registrar ocorrências, como lixeiras lotadas,
+              danificadas ou roubadas, por meio dos canais digitais previstos,
+              incluindo o chatbot.
+            </p>
+          </li>
+        </ol>
+
+        <aside class="sobre-nota cartao">
+          <h3>O que está em desenvolvimento?</h3>
+
+          <p>
+            O projeto acadêmico apresenta uma solução digital e simulações. Os
+            sensores físicos e sua integração em campo fazem parte da proposta e
+            ainda não foram implantados.
+          </p>
+        </aside>
+      </section>
+
+      <section class="sobre-impacto">
+        <header class="titulo-secao">
+          <p class="etiqueta">Impacto esperado</p>
+
+          <h2>Uma cidade melhor para todos.</h2>
+        </header>
+
+        <ul class="sobre-pilares">
+          <li class="cartao">
+            <h3>Ambiental</h3>
+
+            <p>
+              Contribuir para reduzir resíduos nas ruas e na rede de drenagem.
+            </p>
+          </li>
+
+          <li class="cartao">
+            <h3>Operacional</h3>
+
+            <p>
+              Apoiar a coleta conforme a necessidade, evitando deslocamentos
+              desnecessários.
+            </p>
+          </li>
+
+          <li class="cartao">
+            <h3>Social</h3>
+
+            <p>
+              Aproximar os moradores das equipes responsáveis pela limpeza
+              urbana.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="sobre-identidade">
+        <div class="cartao sobre-final">
+          <img
+            src="../assets/imagens/logo-tupa.svg"
+            alt=""
+            width="65"
+            height="80"
+          />
+
+          <div>
+            <p class="etiqueta">Nossa identidade</p>
+
+            <h2>Por que Tupã?</h2>
+
+            <p>
+              O nome remete ao trovão na tradição tupi-guarani e ao tema das
+              chuvas. A equipe escolheu essa referência para representar a
+              conexão entre natureza, tecnologia e cuidado com a cidade.
+            </p>
+
+            <div class="sobre-acoes">
+              <a class="botao" href="mapa.html"> Conhecer o mapa </a>
+
+              <a class="botao botao-contorno" href="faq.html">
+                Tirar dúvidas
+              </a>
+
+              <a class="sobre-link" href="integrantes.html">
+                Conhecer a equipe
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <section class="rodape-marca">
+        <a href="../index.html" class="logo">
+          <img
+            src="../assets/imagens/logo-tupa.svg"
+            alt=""
+            width="25"
+            height="31"
+          />
+
+          Tupã
+        </a>
+
+        <p>
+          Lixeiras conectadas para uma cidade mais limpa e com menos
+          alagamentos.
+        </p>
+      </section>
+
+      <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+        <h2>Navegue</h2>
+
+        <ul>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="mapa.html">Mapa</a></li>
+          <li><a href="ocorrencia.html">Ocorrência</a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+          <li><a href="integrantes.html">Integrantes</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <address class="rodape-contato">
+        <h2>Contato</h2>
+
+        <ul>
+          <li>
+            <a href="contato.html">Fale com a equipe</a>
+          </li>
+
+          <li>
+            <a href="integrantes.html"> GitHub e LinkedIn dos integrantes </a>
+          </li>
+        </ul>
+      </address>
+
+      <p class="rodape-base">
+        &copy; 2026 Tupã · Projeto da Global Solution FIAP
+      </p>
+    </footer>
+  </body>
+</html>
