@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Painel administrativo do Tupã: mapa de lixeiras, cadastro, ocorrências e rota de coleta.">
     <meta name="theme-color" content="#061a3b">
-    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/imagens/logo-tupa.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header-footer.css">
     <link rel="stylesheet" href="../css/mapa.css">
-    <script src="js/menu.js" defer></script>
-    <script src="js/mapa.js" defer></script>
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/mapa.js" defer></script>
     <title>Mapa de lixeiras | Tupã</title>
 </head>
 <body>
@@ -24,20 +24,20 @@
             <a href="../index.html" class="logo">
                 <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
                 Tupã
-            </a>
+            </a style>
 
             <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
                 <span class="icone-menu"></span>
             </button>
 
             <ul class="menu" id="menu-principal">
-                <li><a href="./sobre.html">Sobre</a></li>
-                <li><a href="./ocorrencia.html">Ocorrência</a></li>
-                <li><a href="./cadastro.html">Cadastro</a></li>
-                <li><a href="./integrantes.html">Integrantes</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-                <li><a href="./contato.html">Contato</a></li>
-                <li><a href="./mapa.html" class="botao" aria-current="page">Ver mapa</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="mapa.html" class="botao" aria-current="page">Ver mapa</a></li>
             </ul>
         </nav>
     </header>
@@ -81,42 +81,48 @@
                         </svg>
                     </li>
                     <li class="ponto ponto-garagem" aria-label="Garagem dos caminhões"></li>
+                    <p id="resultado-rota"></p>
+                    
+                    <div id="vazia">
+                        <li class="ponto estado-vazia" id="ponto-0" >
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(0)" aria-label="Largo da Batata"></button>
+                        </li>
 
-                    <li class="ponto estado-vazia" id="ponto-0">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(0)" aria-label="Largo da Batata"></button>
-                    </li>
+                        <li class="ponto estado-vazia" id="ponto-3" >
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(3)" aria-label="Estação da Luz"></button>
+                        </li>
 
-                    <li class="ponto estado-cheia" id="ponto-1">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(1)" aria-label="Terminal Bandeira"></button>
-                    </li>
+                        <li class="ponto estado-vazia" id="ponto-5" >
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(5)" aria-label="Praça da Sé"></button>
+                        </li>
 
-                    <li class="ponto estado-cheia" id="ponto-2">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(2)" aria-label="Av. Paulista, Bela Vista"></button>
-                    </li>
+                        <li class="ponto estado-vazia" id="ponto-8" >
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(8)" aria-label="Terminal Parque Dom Pedro II"></button>
+                        </li>
+                    </div>
 
-                    <li class="ponto estado-vazia" id="ponto-3">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(3)" aria-label="Estação da Luz"></button>
-                    </li>
+                    <div id="quase-cheia">
+                        <li class="ponto estado-quase-cheia" id="ponto-1">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(1)" aria-label="Terminal Bandeira"></button>
+                        </li>
+                        <li class="ponto estado-quase-cheia" id="ponto-2">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(2)" aria-label="Av. Paulista, Bela Vista"></button>
+                        </li>
 
-                    <li class="ponto estado-quase-cheia" id="ponto-4">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(4)" aria-label="Feira da Liberdade"></button>
-                    </li>
+                        <li class="ponto estado-quase-cheia" id="ponto-4">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(4)" aria-label="Feira da Liberdade"></button>
+                        </li>
+                    </div>
 
-                    <li class="ponto estado-quase-cheia" id="ponto-5">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(5)" aria-label="Praça da Sé"></button>
-                    </li>
+                    <div id="cheia">
+                        <li class="ponto estado-cheia" id="ponto-6">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(6)" aria-label="Mercado Municipal"></button>
+                        </li>
+                        <li class="ponto estado-cheia" id="ponto-7">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(7)" aria-label="Rua 25 de Março"></button>
+                        </li>
+                    </div>
 
-                    <li class="ponto estado-quase-cheia" id="ponto-6">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(6)" aria-label="Mercado Municipal"></button>
-                    </li>
-
-                    <li class="ponto estado-vazia" id="ponto-7">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(7)" aria-label="Rua 25 de Março"></button>
-                    </li>
-
-                    <li class="ponto estado-vazia" id="ponto-8">
-                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(8)" aria-label="Terminal Parque Dom Pedro II"></button>
-                    </li>
                 </ul>
 
                 <figcaption>
@@ -189,7 +195,7 @@
 
     <footer class="rodape">
         <section class="rodape-marca">
-            <a href="index.html" class="logo">
+            <a href="../index.html" class="logo">
                 <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
                 Tupã
             </a>
@@ -199,7 +205,7 @@
         <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
             <h2>Navegue</h2>
             <ul>
-                <li><a href="index.html">Início</a></li>
+                <li><a href="../index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="mapa.html">Mapa</a></li>
                 <li><a href="ocorrencia.html">Ocorrência</a></li>
