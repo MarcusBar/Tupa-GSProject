@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painel administrativo do Tupã: mapa de lixeiras, cadastro, ocorrências e rota de coleta.">
+    <meta name="theme-color" content="#061a3b">
+    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/mapa.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/mapa.js" defer></script>
+    <title>Mapa de lixeiras | Tupã</title>
+</head>
+<body>
+    <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho" id="cabecalho">
+        <nav class="navegacao" aria-label="Navegação principal">
+            <a href="index.html" class="logo">
+                <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+                <span class="icone-menu"></span>
+            </button>
+
+            <ul class="menu" id="menu-principal">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="mapa.html" class="botao" aria-current="page">Ver mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section class="apresentacao">
+            <p class="etiqueta">Área administrativa · protótipo</p>
+            <h1>Mapa de lixeiras</h1>
+            <p>Acompanhe o nível de cada lixeira, cadastre novos pontos, veja as ocorrências dos usuários e gere a rota dos caminhões.</p>
+        </section>
+
+        <section class="painel">
+            <ul class="resumo" aria-live="polite">
+                <li><strong id="total-todas">9</strong> lixeiras</li>
+                <li class="estado-vazia"><strong id="total-vazia">4</strong> vazias</li>
+                <li class="estado-quase-cheia"><strong id="total-quase-cheia">3</strong> quase cheias</li>
+                <li class="estado-cheia"><strong id="total-cheia">2</strong> cheias</li>
+            </ul>
+
+            <form class="barra-controles" aria-label="Filtros e ações do mapa">
+                <fieldset class="filtros">
+                    <legend class="so-leitor">Mostrar lixeiras</legend>
+                    <label><input type="radio" name="estado" value="todas" onclick="filtrarMapa('todas')" checked> Todas</label>
+                    <label><input type="radio" name="estado" value="vazia" onclick="filtrarMapa('vazia')"> Vazias</label>
+                    <label><input type="radio" name="estado" value="quase-cheia" onclick="filtrarMapa('quase-cheia')"> Quase cheias</label>
+                    <label><input type="radio" name="estado" value="cheia" onclick="filtrarMapa('cheia')"> Cheias</label>
+                </fieldset>
+
+                <menu class="acoes">
+                    <li><button type="button" class="botao botao-pequeno" onclick="gerarRota()">Gerar rota</button></li>
+                    <li><button type="button" class="botao botao-contorno botao-pequeno" id="limpar-rota" onclick="limparRota()" disabled>Limpar rota</button></li>
+                </menu>
+            </form>
+            
+
+            <figure class="area-mapa">
+                <ul class="mapa" id="mapa" aria-label="Mapa de lixeiras de São Paulo (posições ilustrativas)">
+                    <li class="camada-rota" aria-hidden="true">
+                        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <polyline id="linha-rota" points=""></polyline>
+                        </svg>
+                    </li>
+                    <li class="ponto ponto-garagem" aria-label="Garagem dos caminhões"></li>
+
+                    <li class="ponto estado-vazia" id="ponto-0">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(0)" aria-label="Largo da Batata"></button>
+                    </li>
+
+                    <li class="ponto estado-cheia" id="ponto-1">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(1)" aria-label="Terminal Bandeira"></button>
+                    </li>
+
+                    <li class="ponto estado-cheia" id="ponto-2">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(2)" aria-label="Av. Paulista, Bela Vista"></button>
+                    </li>
+
+                    <li class="ponto estado-vazia" id="ponto-3">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(3)" aria-label="Estação da Luz"></button>
+                    </li>
+
+                    <li class="ponto estado-quase-cheia" id="ponto-4">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(4)" aria-label="Feira da Liberdade"></button>
+                    </li>
+
+                    <li class="ponto estado-quase-cheia" id="ponto-5">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(5)" aria-label="Praça da Sé"></button>
+                    </li>
+
+                    <li class="ponto estado-quase-cheia" id="ponto-6">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(6)" aria-label="Mercado Municipal"></button>
+                    </li>
+
+                    <li class="ponto estado-vazia" id="ponto-7">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(7)" aria-label="Rua 25 de Março"></button>
+                    </li>
+
+                    <li class="ponto estado-vazia" id="ponto-8">
+                        <button type="button" class="ponto-botao" onclick="mostrarLixeira(8)" aria-label="Terminal Parque Dom Pedro II"></button>
+                    </li>
+                </ul>
+
+                <figcaption>
+                    <ul class="legenda" aria-label="Legenda do mapa">
+                        <li class="estado-vazia">Vazia</li>
+                        <li class="estado-quase-cheia">Quase cheia</li>
+                        <li class="estado-cheia">Cheia</li>
+                        <li class="legenda-garagem">Garagem</li>
+                    </ul>
+                    <p>Clique em uma lixeira para ver os detalhes. Os dados deste mapa são de exemplo.</p>
+                </figcaption>
+            </figure>
+
+            <aside class="lateral">
+                <article class="detalhe cartao" id="detalhe" aria-live="polite">
+                    <h2>Detalhes da lixeira</h2>
+                    <p class="detalhe-vazio">Selecione uma lixeira no mapa.</p>
+                </article>
+
+                <form class="formulario" id="formulario-lixeira" aria-labelledby="titulo-lixeira">
+                    <h2 id="titulo-lixeira">Cadastrar lixeira</h2>
+
+                    <p class="campo">
+                        <label for="nome-lixeira">Nome ou endereço</label>
+                        <input type="text" id="nome-lixeira" name="nome" placeholder="Ex.: Rua Augusta, 500" autocomplete="off">
+                        <small class="campo-erro" id="erro-nome-lixeira" role="alert"></small>
+                    </p>
+
+                    <p class="campo">
+                        <label for="nivel-inicial">Nível do sensor (%)</label>
+                        <input type="number" id="nivel-inicial" name="nivel" min="0" max="100" value="0" inputmode="numeric">
+                        <small class="campo-erro" id="erro-nivel-inicial" role="alert"></small>
+                    </p>
+
+                    <button type="button" class="botao" onclick="cadastrarLixeira()">Cadastrar lixeira</button>
+
+                    <output class="aviso" id="aviso" hidden></output>
+                </form>
+            </aside>
+        </section>
+
+        <section class="rota-sugerida">
+            <h2>Rota de coleta</h2>
+            <p class="rota-resumo" id="rota-resumo">Clique em "Gerar rota" para sugerir o caminho do caminhão pelas lixeiras quase cheias e cheias.</p>
+            <ol class="paradas" id="paradas" aria-live="polite"></ol>
+        </section>
+
+        <section class="ocorrencias">
+            <h2>Ocorrências dos usuários</h2>
+            <p class="vazio">Exemplos de relatos feitos na <a href="ocorrencia.html">página de ocorrência</a>.</p>
+            <ul class="lista-ocorrencias">
+                <li>
+                    <h3>Lixeira danificada</h3>
+                    <p class="ocorrencia-detalhes">12/11/2026 · Praça da Sé</p>
+                    <p>A tampa da lixeira está quebrada e o lixo cai na calçada.</p>
+                </li>
+                <li>
+                    <h3>Local sem lixeira</h3>
+                    <p class="ocorrencia-detalhes">14/11/2026 · Rua 25 de Março</p>
+                    <p>Não há nenhuma lixeira em um quarteirão inteiro, e o lixo fica no chão.</p>
+                </li>
+                <li>
+                    <h3>Bueiro entupido</h3>
+                    <p class="ocorrencia-detalhes">16/11/2026 · Terminal Bandeira</p>
+                    <p>Folhas e sacolas estão tampando a boca de lobo e a água não escoa.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <section class="rodape-marca">
+            <a href="index.html" class="logo">
+                <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+            <p>Lixeiras conectadas para uma cidade mais limpa e com menos alagamentos.</p>
+        </section>
+
+        <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+            <h2>Navegue</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <address class="rodape-contato">
+            <h2>Contato</h2>
+            <ul>
+                <li><a href="contato.html">Fale com a equipe</a></li>
+                <li><a href="integrantes.html">GitHub e LinkedIn dos integrantes</a></li>
+            </ul>
+        </address>
+
+        <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
+    </footer>
+</body>
+</html>
