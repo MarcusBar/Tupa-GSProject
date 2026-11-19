@@ -1,0 +1,73 @@
+/* =====================================================
+   CONTATO.CSS - formulário e canais de contato
+   (os estilos dos campos ficam no style.css)
+   ===================================================== */
+
+.area-contato {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.area-contato .botao {
+  align-self: flex-start;
+}
+
+/* ===== CANAIS ====== */
+
+.canais {
+  padding: 2rem;
+}
+
+.canais h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.canais address {
+  font-style: normal;
+}
+
+.canais ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.canal-titulo {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.canais a {
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.canais a:hover {
+  color: var(--azul);
+}
+
+/* ===== RESPONSIVO ====== */
+
+@media (max-width: 900px) {
+  .area-contato {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .canais {
+    padding: 1.4rem;
+  }
+
+  .area-contato .botao {
+    align-self: stretch;
+  }
+}
