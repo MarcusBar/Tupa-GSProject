@@ -11,7 +11,7 @@ let nomes = [
   "Terminal Parque Dom Pedro II"
 ];
 
-let niveis = [41, 85, 92, 30, 63, 55, 72, 18, 12]; //Niveis das Lixeiras
+let niveis = [41, 76, 56, 30, 63, 39, 85, 90, 12]; //Niveis das Lixeiras
 let selecionada = -1; // -1 quer dizer "nenhuma lixeira escolhida"
 
 function filtrarMapa(filtro) {
