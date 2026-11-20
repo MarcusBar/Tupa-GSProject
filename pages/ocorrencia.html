@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Relate lixeira danificada, lixo cheio, local sem lixeira ou descarte irregular no Tupã.">
+    <meta name="description"
+        content="Relate lixeira danificada, lixo cheio, local sem lixeira ou descarte irregular no Tupã.">
     <meta name="theme-color" content="#061a3b">
-    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="icon" href="../assets/imagens/logo-tupa.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/header-footer.css">
-    <link rel="stylesheet" href="css/ocorrencia.css">
-    <script src="js/menu.js" defer></script>
-    <script src="js/ocorrencia.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/ocorrencia.css">
+    <script src="../js/menu.js" defer></script>
+    <script src="../js/ocorrencia.js" defer></script>
     <title>Ocorrência | Tupã</title>
 </head>
+
 <body>
     <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
 
     <header class="cabecalho" id="cabecalho">
         <nav class="navegacao" aria-label="Navegação principal">
             <a href="index.html" class="logo">
-                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
                 Tupã
             </a>
 
-            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false"
+                aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
                 <span class="icone-menu"></span>
             </button>
 
@@ -73,7 +78,8 @@
 
                 <p class="campo">
                     <label for="local">Local</label>
-                    <input type="text" id="local" name="local" list="lixeiras-cadastradas" placeholder="Endereço ou ponto de referência" autocomplete="off">
+                    <input type="text" id="local" name="local" list="lixeiras-cadastradas"
+                        placeholder="Endereço ou ponto de referência" autocomplete="off">
                     <datalist id="lixeiras-cadastradas">
                         <option value="Largo da Batata">
                         <option value="Terminal Bandeira">
@@ -85,13 +91,15 @@
                         <option value="Rua 25 de Março">
                         <option value="Terminal Parque Dom Pedro II">
                     </datalist>
-                    <small class="campo-dica">Obrigatório para lixeira danificada ou cheia. Nos outros tipos, é opcional.</small>
+                    <small class="campo-dica">Obrigatório para lixeira danificada ou cheia. Nos outros tipos, é
+                        opcional.</small>
                     <small class="campo-erro" id="erro-local" role="alert"></small>
                 </p>
 
                 <p class="campo">
                     <label for="descricao">Descrição do problema</label>
-                    <textarea id="descricao" name="descricao" rows="5" maxlength="300" placeholder="Conte brevemente o que está acontecendo"></textarea>
+                    <textarea id="descricao" name="descricao" rows="5" maxlength="300"
+                        placeholder="Conte brevemente o que está acontecendo"></textarea>
                     <small class="campo-dica">Até 300 caracteres.</small>
                     <small class="campo-erro" id="erro-descricao" role="alert"></small>
                 </p>
@@ -142,4 +150,5 @@
         <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
     </footer>
 </body>
+
 </html>

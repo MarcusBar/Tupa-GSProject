@@ -1,4 +1,4 @@
-main > .faq-conteudo {
+main>.faq-conteudo {
   max-width: 950px;
   margin-inline: auto;
 }

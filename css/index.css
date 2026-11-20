@@ -21,8 +21,6 @@
   text-wrap: balance;
 }
 
-/*PRÉVIA DO MAPA*/
-
 .previa-mapa {
   position: relative;
   margin-top: 3.5rem;
@@ -92,8 +90,6 @@
   color: var(--vermelho);
 }
 
-/* ===== COMO FUNCIONA ====== */
-
 .passos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -125,8 +121,6 @@
 .ficha-tecnica p {
   color: var(--texto-suave);
 }
-
-/* ===== SENSORES ====== */
 
 .sensores {
   display: grid;
@@ -222,8 +216,6 @@
   gap: 1rem;
 }
 
-/* ===== NÚMEROS ====== */
-
 .lista-numeros {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -254,8 +246,6 @@
   font-size: 0.82rem;
   color: var(--texto-suave);
 }
-
-/* ===== ATALHOS ====== */
 
 .atalhos {
   display: grid;
@@ -294,8 +284,6 @@
   color: var(--texto-suave);
 }
 
-/* ===== RESPONSIVO ====== */
-
 @media (max-width: 1000px) {
   .passos {
     grid-template-columns: 1fr;
@@ -322,7 +310,6 @@
 }
 
 @media (max-width: 800px) {
-  /* Legenda e cartão descem para baixo do mapa para não cobrir os pontos */
 
   .previa-mapa figcaption {
     position: static;

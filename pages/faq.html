@@ -1,487 +1,378 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta
-      name="description"
-      content="Tire suas dúvidas sobre o projeto Tupã."
-    />
-    <meta name="theme-color" content="#061a3b" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="icon"
-      href="../assets/imagens/logo-tupa.svg"
-      type="image/svg+xml"
-    />
+  <meta name="description" content="Tire suas dúvidas sobre o projeto Tupã." />
+  <meta name="theme-color" content="#061a3b" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="icon" href="../assets/imagens/logo-tupa.svg" type="image/svg+xml" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/header-footer.css" />
-    <link rel="stylesheet" href="../css/faq.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-    <script src="../js/menu.js" defer></script>
-    <script src="../js/faq.js" defer></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/header-footer.css" />
+  <link rel="stylesheet" href="../css/faq.css" />
 
-    <title>Tupã | Perguntas frequentes</title>
-  </head>
+  <script src="../js/menu.js" defer></script>
+  <script src="../js/faq.js" defer></script>
 
-  <body>
-    <!-- ACESSIBILIDADE -->
+  <title>Tupã | Perguntas frequentes</title>
+</head>
 
-    <a href="#conteudo" class="pular-conteudo"> Pular para o conteúdo </a>
+<body>
 
-    <!-- CABEÇALHO -->
+  <a href="#conteudo" class="pular-conteudo"> Pular para o conteúdo </a>
 
-    <header class="cabecalho" id="cabecalho">
-      <nav class="navegacao" aria-label="Navegação principal">
-        <a href="../index.html" class="logo">
-          <img
-            src="../assets/imagens/logo-tupa.svg"
-            alt=""
-            width="25"
-            height="31"
-          />
-          Tupã
-        </a>
+  <header class="cabecalho" id="cabecalho">
+    <nav class="navegacao" aria-label="Navegação principal">
+      <a href="../index.html" class="logo">
+        <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31" />
+        Tupã
+      </a>
 
-        <!-- MENU HAMBÚRGUER -->
+      <button type="button" class="botao-menu" id="botao-menu" aria-expanded="false" aria-controls="menu-principal"
+        aria-label="Abrir ou fechar menu">
+        <span class="icone-menu"></span>
+      </button>
 
-        <button
-          type="button"
-          class="botao-menu"
-          id="botao-menu"
-          aria-expanded="false"
-          aria-controls="menu-principal"
-          aria-label="Abrir ou fechar menu"
-        >
-          <span class="icone-menu"></span>
-        </button>
-
-        <!-- LINKS DE NAVEGAÇÃO -->
-
-        <ul class="menu" id="menu-principal">
-          <li><a href="sobre.html">Sobre</a></li>
-
-          <li><a href="ocorrencia.html">Ocorrência</a></li>
-
-          <li><a href="cadastro.html">Cadastro</a></li>
-
-          <li><a href="integrantes.html">Integrantes</a></li>
-
-          <li>
-            <a href="faq.html" aria-current="page">FAQ</a>
-          </li>
-
-          <li><a href="contato.html">Contato</a></li>
-
-          <li>
-            <a href="mapa.html" class="botao">Ver mapa</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- CONTEÚDO PRINCIPAL -->
-
-    <main id="conteudo">
-      <!-- APRESENTAÇÃO -->
-
-      <section class="apresentacao">
-        <p class="etiqueta">Central de ajuda</p>
-
-        <h1>Perguntas frequentes.</h1>
-
-        <p>
-          Encontre respostas para suas dúvidas sobre o projeto Tupã, nossas
-          tecnologias e a participação dos cidadãos.
-        </p>
-      </section>
-
-      <!-- CONTEÚDO DO FAQ -->
-
-      <section class="faq-conteudo">
-        <header class="titulo-secao">
-          <h2>Encontre sua resposta</h2>
-
-          <p>Pesquise uma palavra ou selecione uma das perguntas abaixo.</p>
-        </header>
-
-        <!-- CAMPO DE PESQUISA -->
-
-        <div class="campo faq-pesquisa">
-          <label for="pesquisa-faq"> Pesquisar uma dúvida </label>
-
-          <input
-            type="search"
-            id="pesquisa-faq"
-            placeholder="Ex.: sensores, coleta, ocorrências..."
-            autocomplete="off"
-          />
-        </div>
-
-        <!-- CONTADOR DE RESULTADOS -->
-
-        <p id="faq-contador" aria-live="polite">10 perguntas encontradas</p>
-
-        <!-- LISTA DE PERGUNTAS -->
-
-        <div class="faq-lista">
-          <!-- PERGUNTA 1 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-1"
-              >
-                O que é o projeto Tupã?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-1" hidden>
-              <p>
-                O Tupã é uma proposta de gestão inteligente de resíduos urbanos
-                que utiliza tecnologia, monitoramento e participação cidadã para
-                contribuir com uma cidade mais limpa, sustentável e resiliente.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 2 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-2"
-              >
-                Como funcionariam os sensores inteligentes?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-2" hidden>
-              <p>
-                A proposta prevê sensores ultrassônicos capazes de medir o nível
-                de preenchimento das lixeiras. As informações seriam enviadas ao
-                sistema de monitoramento para auxiliar as equipes no
-                planejamento da coleta de resíduos.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 3 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-3"
-              >
-                Qual problema o Tupã busca resolver?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-3" hidden>
-              <p>
-                O projeto busca combater o acúmulo de resíduos urbanos, a
-                ineficiência da coleta e a obstrução de bueiros causada pelo
-                descarte inadequado de lixo, que pode contribuir para
-                alagamentos.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 4 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-4"
-              >
-                O que significam as cores do mapa?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-4" hidden>
-              <p>
-                A cor verde representa lixeiras vazias ou com baixo nível de
-                preenchimento. A cor amarela representa lixeiras próximas da
-                capacidade máxima, enquanto a cor vermelha representa lixeiras
-                cheias que precisam de atendimento prioritário.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 5 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-5"
-              >
-                Como posso registrar uma ocorrência?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-5" hidden>
-              <p>
-                O projeto prevê o registro de ocorrências por meio da página de
-                ocorrências e do chatbot. O cidadão poderá comunicar problemas
-                como lixeiras lotadas, danificadas ou roubadas.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 6 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-6"
-              >
-                E se um sensor apresentar falha?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-6" hidden>
-              <p>
-                Caso um sensor apresente falha, o cidadão poderá registrar
-                manualmente uma ocorrência pelo chatbot. Dessa forma, a
-                participação da população complementará o monitoramento
-                automático previsto pelo sistema.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 7 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-7"
-              >
-                Como seriam planejadas as rotas de coleta?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-7" hidden>
-              <p>
-                Os dados de localização e preenchimento das lixeiras auxiliariam
-                no planejamento das rotas dos caminhões, priorizando os pontos
-                críticos e evitando deslocamentos desnecessários.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 8 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-8"
-              >
-                O Tupã pode acabar com os alagamentos?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-8" hidden>
-              <p>
-                Não completamente. O Tupã busca contribuir para a redução da
-                obstrução dos sistemas de drenagem causada pelo acúmulo de
-                resíduos. Entretanto, os alagamentos também dependem de fatores
-                como a intensidade das chuvas e a infraestrutura urbana.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 9 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-9"
-              >
-                O sistema já está instalado em São Paulo?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-9" hidden>
-              <p>
-                Não. O Tupã é um projeto acadêmico desenvolvido para a Global
-                Solution da FIAP, que apresenta funcionalidades digitais e
-                simulações. A instalação dos sensores físicos e a implantação em
-                condições reais fazem parte da proposta de evolução do projeto.
-              </p>
-            </div>
-          </article>
-
-          <!-- PERGUNTA 10 -->
-
-          <article class="faq-item cartao">
-            <h3>
-              <button
-                type="button"
-                class="faq-pergunta"
-                aria-expanded="false"
-                aria-controls="resposta-10"
-              >
-                Como posso entrar em contato com a equipe?
-
-                <span class="faq-icone" aria-hidden="true">+</span>
-              </button>
-            </h3>
-
-            <div class="faq-resposta" id="resposta-10" hidden>
-              <p>
-                Você pode entrar em contato por meio da página de contato do
-                site ou conhecer os responsáveis pelo desenvolvimento do projeto
-                na página de integrantes, onde estão disponíveis seus perfis
-                profissionais.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <!-- MENSAGEM SEM RESULTADOS -->
-
-        <p id="faq-vazio" class="faq-vazio" hidden>
-          Nenhuma pergunta encontrada. Tente pesquisar outra palavra.
-        </p>
-      </section>
-
-      <!-- SEÇÃO DE CONTATO -->
-
-      <section class="faq-contato">
-        <div class="cartao">
-          <p class="etiqueta">Estamos aqui para ajudar</p>
-
-          <h2>Ainda tem dúvidas?</h2>
-
-          <p>
-            Entre em contato com nossa equipe para saber mais sobre o projeto
-            Tupã.
-          </p>
-
-          <a href="contato.html" class="botao"> Fale com nossa equipe </a>
-        </div>
-      </section>
-    </main>
-
-    <!-- RODAPÉ -->
-
-    <footer class="rodape">
-      <section class="rodape-marca">
-        <a href="../index.html" class="logo">
-          <img
-            src="../assets/imagens/logo-tupa.svg"
-            alt=""
-            width="25"
-            height="31"
-          />
-
-          Tupã
-        </a>
-
-        <p>
-          Lixeiras conectadas para uma cidade mais limpa e com menos
-          alagamentos.
-        </p>
-      </section>
-
-      <!-- NAVEGAÇÃO DO RODAPÉ -->
-
-      <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
-        <h2>Navegue</h2>
-
-        <ul>
-          <li><a href="../index.html">Início</a></li>
-
-          <li><a href="sobre.html">Sobre</a></li>
-
-          <li><a href="mapa.html">Mapa</a></li>
-
-          <li><a href="ocorrencia.html">Ocorrência</a></li>
-
-          <li><a href="cadastro.html">Cadastro</a></li>
-
-          <li><a href="integrantes.html">Integrantes</a></li>
-
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </nav>
-
-      <!-- CONTATO DO RODAPÉ -->
-
-      <address class="rodape-contato">
-        <h2>Contato</h2>
-
-        <ul>
-          <li>
-            <a href="contato.html">Fale com a equipe</a>
-          </li>
-
-          <li>
-            <a href="integrantes.html"> GitHub e LinkedIn dos integrantes </a>
-          </li>
-        </ul>
-      </address>
-
-      <!-- DIREITOS AUTORAIS -->
-
-      <p class="rodape-base">
-        &copy; 2026 Tupã · Projeto da Global Solution FIAP
+      <ul class="menu" id="menu-principal">
+        <li><a href="./sobre.html">Sobre</a></li>
+
+        <li><a href="./ocorrencia.html">Ocorrência</a></li>
+
+        <li><a href="./cadastro.html">Cadastro</a></li>
+
+        <li><a href="./integrantes.html">Integrantes</a></li>
+
+        <li>
+          <a href="./faq.html" aria-current="page">FAQ</a>
+        </li>
+
+        <li><a href="./contato.html">Contato</a></li>
+
+        <li>
+          <a href="./mapa.html" class="botao">Ver mapa</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+
+    <section class="apresentacao">
+      <p class="etiqueta">Central de ajuda</p>
+
+      <h1>Perguntas frequentes.</h1>
+
+      <p>
+        Encontre respostas para suas dúvidas sobre o projeto Tupã, nossas
+        tecnologias e a participação dos cidadãos.
       </p>
-    </footer>
-  </body>
+    </section>
+
+    <!-- CONTEÚDO DO FAQ -->
+
+    <section class="faq-conteudo">
+      <header class="titulo-secao">
+        <h2>Encontre sua resposta</h2>
+
+        <p>Pesquise uma palavra ou selecione uma das perguntas abaixo.</p>
+      </header>
+
+      <div class="campo faq-pesquisa">
+        <label for="pesquisa-faq"> Pesquisar uma dúvida </label>
+
+        <input type="search" id="pesquisa-faq" placeholder="Ex.: sensores, coleta, ocorrências..." autocomplete="off" />
+      </div>
+
+      <p id="faq-contador" aria-live="polite">10 perguntas encontradas</p>
+
+      <!-- LISTA DE PERGUNTAS -->
+
+      <div class="faq-lista">
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-1">
+              O que é o projeto Tupã?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-1" hidden>
+            <p>
+              O Tupã é uma proposta de gestão inteligente de resíduos urbanos
+              que utiliza tecnologia, monitoramento e participação cidadã para
+              contribuir com uma cidade mais limpa, sustentável e resiliente.
+            </p>
+          </div>
+        </article>
+
+
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-2">
+              Como funcionariam os sensores inteligentes?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-2" hidden>
+            <p>
+              A proposta prevê sensores ultrassônicos capazes de medir o nível
+              de preenchimento das lixeiras. As informações seriam enviadas ao
+              sistema de monitoramento para auxiliar as equipes no
+              planejamento da coleta de resíduos.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-3">
+              Qual problema o Tupã busca resolver?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-3" hidden>
+            <p>
+              O projeto busca combater o acúmulo de resíduos urbanos, a
+              ineficiência da coleta e a obstrução de bueiros causada pelo
+              descarte inadequado de lixo, que pode contribuir para
+              alagamentos.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-4">
+              O que significam as cores do mapa?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-4" hidden>
+            <p>
+              A cor verde representa lixeiras vazias ou com baixo nível de
+              preenchimento. A cor amarela representa lixeiras próximas da
+              capacidade máxima, enquanto a cor vermelha representa lixeiras
+              cheias que precisam de atendimento prioritário.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-5">
+              Como posso registrar uma ocorrência?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-5" hidden>
+            <p>
+              O projeto prevê o registro de ocorrências por meio da página de
+              ocorrências e do chatbot. O cidadão poderá comunicar problemas
+              como lixeiras lotadas, danificadas ou roubadas.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-6">
+              E se um sensor apresentar falha?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-6" hidden>
+            <p>
+              Caso um sensor apresente falha, o cidadão poderá registrar
+              manualmente uma ocorrência pelo chatbot. Dessa forma, a
+              participação da população complementará o monitoramento
+              automático previsto pelo sistema.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-7">
+              Como seriam planejadas as rotas de coleta?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-7" hidden>
+            <p>
+              Os dados de localização e preenchimento das lixeiras auxiliariam
+              no planejamento das rotas dos caminhões, priorizando os pontos
+              críticos e evitando deslocamentos desnecessários.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-8">
+              O Tupã pode acabar com os alagamentos?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-8" hidden>
+            <p>
+              Não completamente. O Tupã busca contribuir para a redução da
+              obstrução dos sistemas de drenagem causada pelo acúmulo de
+              resíduos. Entretanto, os alagamentos também dependem de fatores
+              como a intensidade das chuvas e a infraestrutura urbana.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-9">
+              O sistema já está instalado em São Paulo?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-9" hidden>
+            <p>
+              Não. O Tupã é um projeto acadêmico desenvolvido para a Global
+              Solution da FIAP, que apresenta funcionalidades digitais e
+              simulações. A instalação dos sensores físicos e a implantação em
+              condições reais fazem parte da proposta de evolução do projeto.
+            </p>
+          </div>
+        </article>
+
+        <article class="faq-item cartao">
+          <h3>
+            <button type="button" class="faq-pergunta" aria-expanded="false" aria-controls="resposta-10">
+              Como posso entrar em contato com a equipe?
+
+              <span class="faq-icone" aria-hidden="true">+</span>
+            </button>
+          </h3>
+
+          <div class="faq-resposta" id="resposta-10" hidden>
+            <p>
+              Você pode entrar em contato por meio da página de contato do
+              site ou conhecer os responsáveis pelo desenvolvimento do projeto
+              na página de integrantes, onde estão disponíveis seus perfis
+              profissionais.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- MENSAGEM SEM RESULTADOS -->
+
+      <p id="faq-vazio" class="faq-vazio" hidden>
+        Nenhuma pergunta encontrada. Tente pesquisar outra palavra.
+      </p>
+    </section>
+
+    <!-- SEÇÃO DE CONTATO -->
+
+    <section class="faq-contato">
+      <div class="cartao">
+        <p class="etiqueta">Estamos aqui para ajudar</p>
+
+        <h2>Ainda tem dúvidas?</h2>
+
+        <p>
+          Entre em contato com nossa equipe para saber mais sobre o projeto
+          Tupã.
+        </p>
+
+        <a href="../contato.html" class="botao"> Fale com nossa equipe </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+
+  <footer class="rodape">
+    <section class="rodape-marca">
+      <a href="../index.html" class="logo">
+        <img src="../assets/imagens/logo-tupa.svg" alt="" width="25" height="31" />
+
+        Tupã
+      </a>
+
+      <p>
+        Lixeiras conectadas para uma cidade mais limpa e com menos
+        alagamentos.
+      </p>
+    </section>
+
+    <!-- NAVEGAÇÃO DO RODAPÉ -->
+
+    <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+      <h2>Navegue</h2>
+
+      <ul>
+        <li><a href="../index.html">Início</a></li>
+
+        <li><a href="./sobre.html">Sobre</a></li>
+
+        <li><a href="./mapa.html">Mapa</a></li>
+
+        <li><a href="./ocorrencia.html">Ocorrência</a></li>
+
+        <li><a href="./cadastro.html">Cadastro</a></li>
+
+        <li><a href="./integrantes.html">Integrantes</a></li>
+
+        <li><a href="./faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <!-- CONTATO DO RODAPÉ -->
+
+    <address class="rodape-contato">
+      <h2>Contato</h2>
+
+      <ul>
+        <li>
+          <a href="./contato.html">Fale com a equipe</a>
+        </li>
+
+        <li>
+          <a href="./integrantes.html"> GitHub e LinkedIn dos integrantes </a>
+        </li>
+      </ul>
+    </address>
+
+
+
+    <p class="rodape-base">
+      &copy; 2026 Tupã · Projeto da Global Solution FIAP
+    </p>
+  </footer>
+</body>
+
 </html>

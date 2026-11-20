@@ -1,10 +1,3 @@
-/* =====================================================
-   HEADER-FOOTER.CSS - cabeçalho (menu) e rodapé
-   Iguais em todas as páginas.
-   ===================================================== */
-
-/* ===== CABEÇALHO ====== */
-
 .cabecalho {
   position: sticky;
   top: 0;
@@ -39,8 +32,6 @@
   height: auto;
 }
 
-/* ===== MENU (computador) ====== */
-
 .menu {
   display: flex;
   align-items: center;
@@ -67,8 +58,6 @@
   text-underline-offset: 0.5rem;
 }
 
-/* O botão "Ver mapa" mantém a aparência de botão dentro do menu */
-
 .menu .botao {
   margin-left: 0.6rem;
   padding: 0.7rem 1.6rem;
@@ -79,8 +68,6 @@
 .menu .botao:hover {
   color: var(--azul-escuro);
 }
-
-/* Botão hambúrguer: só aparece no celular e no tablet */
 
 .botao-menu {
   display: none;
@@ -118,8 +105,6 @@
   top: 0.35rem;
 }
 
-/* Quando o menu está aberto, o hambúrguer vira um X */
-
 .menu-aberto .icone-menu {
   background-color: transparent;
 }
@@ -133,8 +118,6 @@
   top: 0;
   transform: rotate(-45deg);
 }
-
-/* ===== RODAPÉ ====== */
 
 .rodape {
   display: grid;
@@ -192,14 +175,10 @@
   text-align: center;
 }
 
-/* ===== RESPONSIVO ====== */
-
 @media (max-width: 960px) {
   .botao-menu {
     display: block;
   }
-
-  /* O menu vira um painel que desce embaixo do cabeçalho */
 
   .menu {
     position: absolute;

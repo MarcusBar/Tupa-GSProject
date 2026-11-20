@@ -14,23 +14,23 @@ let nomes = [
 let niveis = [41, 85, 92, 30, 63, 55, 72, 18, 12]; //Niveis das Lixeiras
 let selecionada = -1; // -1 quer dizer "nenhuma lixeira escolhida"
 
-function filtrarMapa(filtro){
-  
-  if(filtro == "todas"){
+function filtrarMapa(filtro) {
+
+  if (filtro == "todas") {
     document.getElementById("vazia").style.display = '';
     document.getElementById("quase-cheia").style.display = '';
     document.getElementById("cheia").style.display = '';
-  }else if(filtro == "vazia"){
+  } else if (filtro == "vazia") {
     document.getElementById("vazia").style.display = '';
     document.getElementById("quase-cheia").style.display = 'none';
     document.getElementById("cheia").style.display = 'none';
-    
-  }else if(filtro == "quase-cheia"){
+
+  } else if (filtro == "quase-cheia") {
     document.getElementById("vazia").style.display = 'none';
     document.getElementById("quase-cheia").style.display = '';
     document.getElementById("cheia").style.display = 'none';
-    
-  }else if(filtro == "cheia"){
+
+  } else if (filtro == "cheia") {
     document.getElementById("vazia").style.display = 'none';
     document.getElementById("quase-cheia").style.display = 'none';
     document.getElementById("cheia").style.display = '';
