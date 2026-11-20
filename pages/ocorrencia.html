@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Relate lixeira danificada, lixo cheio, local sem lixeira ou descarte irregular no Tupã.">
+    <meta name="theme-color" content="#061a3b">
+    <link rel="icon" href="assets/imagens/logo-tupa.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header-footer.css">
+    <link rel="stylesheet" href="css/ocorrencia.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/ocorrencia.js" defer></script>
+    <title>Ocorrência | Tupã</title>
+</head>
+<body>
+    <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
+
+    <header class="cabecalho" id="cabecalho">
+        <nav class="navegacao" aria-label="Navegação principal">
+            <a href="index.html" class="logo">
+                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+                <span class="icone-menu"></span>
+            </button>
+
+            <ul class="menu" id="menu-principal">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="ocorrencia.html" aria-current="page">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="mapa.html" class="botao">Ver mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section class="apresentacao">
+            <p class="etiqueta">Ocorrência</p>
+            <h1>Relate um problema com o lixo</h1>
+            <p>Viu uma lixeira quebrada, cheia ou um lugar que precisa de uma lixeira? Conte para a gente.</p>
+        </section>
+
+        <section class="area-ocorrencia">
+            <form class="formulario" id="formulario-ocorrencia" aria-labelledby="titulo-ocorrencia">
+                <h2 id="titulo-ocorrencia">Nova ocorrência</h2>
+
+                <p class="campo">
+                    <label for="data">Data de criação</label>
+                    <input type="text" id="data" name="data" readonly>
+                </p>
+
+                <p class="campo">
+                    <label for="tipo">Tipo de ocorrência</label>
+                    <select id="tipo" name="tipo">
+                        <option value="">Selecione o tipo</option>
+                        <option value="lixeira-danificada">Lixeira danificada</option>
+                        <option value="lixeira-cheia">Lixeira cheia ou transbordando</option>
+                        <option value="falta-lixeira">Local sem lixeira</option>
+                        <option value="descarte-irregular">Descarte irregular (inclui lixo eletrônico)</option>
+                        <option value="bueiro-entupido">Bueiro ou boca de lobo entupido</option>
+                    </select>
+                    <small class="campo-erro" id="erro-tipo" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="local">Local</label>
+                    <input type="text" id="local" name="local" list="lixeiras-cadastradas" placeholder="Endereço ou ponto de referência" autocomplete="off">
+                    <datalist id="lixeiras-cadastradas">
+                        <option value="Largo da Batata">
+                        <option value="Terminal Bandeira">
+                        <option value="Av. Paulista, Bela Vista">
+                        <option value="Estação da Luz">
+                        <option value="Feira da Liberdade">
+                        <option value="Praça da Sé">
+                        <option value="Mercado Municipal">
+                        <option value="Rua 25 de Março">
+                        <option value="Terminal Parque Dom Pedro II">
+                    </datalist>
+                    <small class="campo-dica">Obrigatório para lixeira danificada ou cheia. Nos outros tipos, é opcional.</small>
+                    <small class="campo-erro" id="erro-local" role="alert"></small>
+                </p>
+
+                <p class="campo">
+                    <label for="descricao">Descrição do problema</label>
+                    <textarea id="descricao" name="descricao" rows="5" maxlength="300" placeholder="Conte brevemente o que está acontecendo"></textarea>
+                    <small class="campo-dica">Até 300 caracteres.</small>
+                    <small class="campo-erro" id="erro-descricao" role="alert"></small>
+                </p>
+
+                <button type="button" class="botao" onclick="enviarOcorrencia()">Enviar ocorrência</button>
+
+                <output class="aviso" id="aviso" hidden></output>
+            </form>
+
+            <aside class="minhas-ocorrencias">
+                <h2>Suas ocorrências</h2>
+                <ul class="lista-ocorrencias" id="lista-ocorrencias" aria-live="polite"></ul>
+                <p class="vazio" id="vazio">Você ainda não enviou nenhuma ocorrência.</p>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <section class="rodape-marca">
+            <a href="index.html" class="logo">
+                <img src="assets/imagens/logo-tupa.svg" alt="" width="25" height="31">
+                Tupã
+            </a>
+            <p>Lixeiras conectadas para uma cidade mais limpa e com menos alagamentos.</p>
+        </section>
+
+        <nav class="rodape-navegacao" aria-label="Navegação do rodapé">
+            <h2>Navegue</h2>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="ocorrencia.html">Ocorrência</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="integrantes.html">Integrantes</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+
+        <address class="rodape-contato">
+            <h2>Contato</h2>
+            <ul>
+                <li><a href="contato.html">Fale com a equipe</a></li>
+                <li><a href="integrantes.html">GitHub e LinkedIn dos integrantes</a></li>
+            </ul>
+        </address>
+
+        <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
+    </footer>
+</body>
+</html>
