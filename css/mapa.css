@@ -111,8 +111,6 @@
   color: var(--texto-suave);
 }
 
-/* Camada onde a rota é desenhada, por cima do mapa e sem atrapalhar os cliques */
-
 .camada-rota {
   position: absolute;
   inset: 0;
@@ -133,8 +131,6 @@
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
 }
-
-/* Posição de cada ponto no mapa (distância da esquerda e do topo, em %) */
 
 .ponto-garagem {
   left: 9%;
@@ -185,9 +181,6 @@
   left: 84%;
   top: 40%;
 }
-
-/* Marcadores especiais */
-
 .ponto-garagem {
   --cor: var(--texto);
   --halo: rgba(232, 239, 255, 0.18);
@@ -218,8 +211,6 @@
 .legenda-garagem::before {
   border-radius: 3px;
 }
-
-/* ===== LATERAL ====== */
 
 .lateral {
   grid-area: lateral;
@@ -281,8 +272,6 @@
   align-self: flex-start;
 }
 
-/* ===== ROTA E OCORRÊNCIAS ====== */
-
 .rota-sugerida h2,
 .ocorrencias h2 {
   margin-bottom: 1rem;
@@ -330,8 +319,6 @@
   display: block;
   color: var(--texto-suave);
 }
-
-/* ===== RESPONSIVO ====== */
 
 @media (max-width: 1000px) {
   .painel {

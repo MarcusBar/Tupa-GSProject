@@ -1,8 +1,3 @@
-/* =====================================================
-   OCORRENCIA.CSS - formulário de ocorrência e lista do usuário
-   (os estilos dos campos e da lista ficam no style.css)
-   ===================================================== */
-
 .area-ocorrencia {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -30,14 +25,10 @@
   color: var(--texto);
 }
 
-/* ===== SUAS OCORRÊNCIAS ====== */
-
 .minhas-ocorrencias h2 {
   margin-bottom: 1.2rem;
   font-size: 1.4rem;
 }
-
-/* ===== RESPONSIVO ====== */
 
 @media (max-width: 900px) {
   .area-ocorrencia {

@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Painel administrativo do Tupã: mapa de lixeiras, cadastro, ocorrências e rota de coleta.">
+    <meta name="description"
+        content="Painel administrativo do Tupã: mapa de lixeiras, cadastro, ocorrências e rota de coleta.">
     <meta name="theme-color" content="#061a3b">
     <link rel="icon" href="../assets/imagens/logo-tupa.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/header-footer.css">
     <link rel="stylesheet" href="../css/mapa.css">
@@ -16,6 +19,7 @@
     <script src="../js/mapa.js" defer></script>
     <title>Mapa de lixeiras | Tupã</title>
 </head>
+
 <body>
     <a href="#conteudo" class="pular-conteudo">Pular para o conteúdo</a>
 
@@ -26,18 +30,19 @@
                 Tupã
             </a style>
 
-            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
+            <button type="button" class="botao-menu" id="botao-menu" onclick="alternarMenu()" aria-expanded="false"
+                aria-controls="menu-principal" aria-label="Abrir ou fechar menu">
                 <span class="icone-menu"></span>
             </button>
 
             <ul class="menu" id="menu-principal">
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="ocorrencia.html">Ocorrência</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="integrantes.html">Integrantes</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contato.html">Contato</a></li>
-                <li><a href="mapa.html" class="botao" aria-current="page">Ver mapa</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="./ocorrencia.html">Ocorrência</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./integrantes.html">Integrantes</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./contato.html">Contato</a></li>
+                <li><a href="./mapa.html" class="botao" aria-current="page">Ver mapa</a></li>
             </ul>
         </nav>
     </header>
@@ -46,7 +51,8 @@
         <section class="apresentacao">
             <p class="etiqueta">Área administrativa · protótipo</p>
             <h1>Mapa de lixeiras</h1>
-            <p>Acompanhe o nível de cada lixeira, cadastre novos pontos, veja as ocorrências dos usuários e gere a rota dos caminhões.</p>
+            <p>Acompanhe o nível de cada lixeira, cadastre novos pontos, veja as ocorrências dos usuários e gere a rota
+                dos caminhões.</p>
         </section>
 
         <section class="painel">
@@ -60,18 +66,23 @@
             <form class="barra-controles" aria-label="Filtros e ações do mapa">
                 <fieldset class="filtros">
                     <legend class="so-leitor">Mostrar lixeiras</legend>
-                    <label><input type="radio" name="estado" value="todas" onclick="filtrarMapa('todas')" checked> Todas</label>
-                    <label><input type="radio" name="estado" value="vazia" onclick="filtrarMapa('vazia')"> Vazias</label>
-                    <label><input type="radio" name="estado" value="quase-cheia" onclick="filtrarMapa('quase-cheia')"> Quase cheias</label>
-                    <label><input type="radio" name="estado" value="cheia" onclick="filtrarMapa('cheia')"> Cheias</label>
+                    <label><input type="radio" name="estado" value="todas" onclick="filtrarMapa('todas')" checked>
+                        Todas</label>
+                    <label><input type="radio" name="estado" value="vazia" onclick="filtrarMapa('vazia')">
+                        Vazias</label>
+                    <label><input type="radio" name="estado" value="quase-cheia" onclick="filtrarMapa('quase-cheia')">
+                        Quase cheias</label>
+                    <label><input type="radio" name="estado" value="cheia" onclick="filtrarMapa('cheia')">
+                        Cheias</label>
                 </fieldset>
 
                 <menu class="acoes">
                     <li><button type="button" class="botao botao-pequeno" onclick="gerarRota()">Gerar rota</button></li>
-                    <li><button type="button" class="botao botao-contorno botao-pequeno" id="limpar-rota" onclick="limparRota()" disabled>Limpar rota</button></li>
+                    <li><button type="button" class="botao botao-contorno botao-pequeno" id="limpar-rota"
+                            onclick="limparRota()" disabled>Limpar rota</button></li>
                 </menu>
             </form>
-            
+
 
             <figure class="area-mapa">
                 <ul class="mapa" id="mapa" aria-label="Mapa de lixeiras de São Paulo (posições ilustrativas)">
@@ -82,44 +93,53 @@
                     </li>
                     <li class="ponto ponto-garagem" aria-label="Garagem dos caminhões"></li>
                     <p id="resultado-rota"></p>
-                    
+
                     <div id="vazia">
-                        <li class="ponto estado-vazia" id="ponto-0" >
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(0)" aria-label="Largo da Batata"></button>
+                        <li class="ponto estado-vazia" id="ponto-0">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(0)"
+                                aria-label="Largo da Batata"></button>
                         </li>
 
-                        <li class="ponto estado-vazia" id="ponto-3" >
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(3)" aria-label="Estação da Luz"></button>
+                        <li class="ponto estado-vazia" id="ponto-3">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(3)"
+                                aria-label="Estação da Luz"></button>
                         </li>
 
-                        <li class="ponto estado-vazia" id="ponto-5" >
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(5)" aria-label="Praça da Sé"></button>
+                        <li class="ponto estado-vazia" id="ponto-5">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(5)"
+                                aria-label="Praça da Sé"></button>
                         </li>
 
-                        <li class="ponto estado-vazia" id="ponto-8" >
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(8)" aria-label="Terminal Parque Dom Pedro II"></button>
+                        <li class="ponto estado-vazia" id="ponto-8">
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(8)"
+                                aria-label="Terminal Parque Dom Pedro II"></button>
                         </li>
                     </div>
 
                     <div id="quase-cheia">
                         <li class="ponto estado-quase-cheia" id="ponto-1">
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(1)" aria-label="Terminal Bandeira"></button>
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(1)"
+                                aria-label="Terminal Bandeira"></button>
                         </li>
                         <li class="ponto estado-quase-cheia" id="ponto-2">
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(2)" aria-label="Av. Paulista, Bela Vista"></button>
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(2)"
+                                aria-label="Av. Paulista, Bela Vista"></button>
                         </li>
 
                         <li class="ponto estado-quase-cheia" id="ponto-4">
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(4)" aria-label="Feira da Liberdade"></button>
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(4)"
+                                aria-label="Feira da Liberdade"></button>
                         </li>
                     </div>
 
                     <div id="cheia">
                         <li class="ponto estado-cheia" id="ponto-6">
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(6)" aria-label="Mercado Municipal"></button>
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(6)"
+                                aria-label="Mercado Municipal"></button>
                         </li>
                         <li class="ponto estado-cheia" id="ponto-7">
-                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(7)" aria-label="Rua 25 de Março"></button>
+                            <button type="button" class="ponto-botao" onclick="mostrarLixeira(7)"
+                                aria-label="Rua 25 de Março"></button>
                         </li>
                     </div>
 
@@ -147,13 +167,15 @@
 
                     <p class="campo">
                         <label for="nome-lixeira">Nome ou endereço</label>
-                        <input type="text" id="nome-lixeira" name="nome" placeholder="Ex.: Rua Augusta, 500" autocomplete="off">
+                        <input type="text" id="nome-lixeira" name="nome" placeholder="Ex.: Rua Augusta, 500"
+                            autocomplete="off">
                         <small class="campo-erro" id="erro-nome-lixeira" role="alert"></small>
                     </p>
 
                     <p class="campo">
                         <label for="nivel-inicial">Nível do sensor (%)</label>
-                        <input type="number" id="nivel-inicial" name="nivel" min="0" max="100" value="0" inputmode="numeric">
+                        <input type="number" id="nivel-inicial" name="nivel" min="0" max="100" value="0"
+                            inputmode="numeric">
                         <small class="campo-erro" id="erro-nivel-inicial" role="alert"></small>
                     </p>
 
@@ -166,7 +188,8 @@
 
         <section class="rota-sugerida">
             <h2>Rota de coleta</h2>
-            <p class="rota-resumo" id="rota-resumo">Clique em "Gerar rota" para sugerir o caminho do caminhão pelas lixeiras quase cheias e cheias.</p>
+            <p class="rota-resumo" id="rota-resumo">Clique em "Gerar rota" para sugerir o caminho do caminhão pelas
+                lixeiras quase cheias e cheias.</p>
             <ol class="paradas" id="paradas" aria-live="polite"></ol>
         </section>
 
@@ -206,12 +229,12 @@
             <h2>Navegue</h2>
             <ul>
                 <li><a href="../index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="ocorrencia.html">Ocorrência</a></li>
-                <li><a href="cadastro.html">Cadastro</a></li>
-                <li><a href="integrantes.html">Integrantes</a></li>
-                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="./sobre.html">Sobre</a></li>
+                <li><a href="./mapa.html">Mapa</a></li>
+                <li><a href="./ocorrencia.html">Ocorrência</a></li>
+                <li><a href="./cadastro.html">Cadastro</a></li>
+                <li><a href="./integrantes.html">Integrantes</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
             </ul>
         </nav>
 
@@ -226,4 +249,5 @@
         <p class="rodape-base">&copy; 2026 Tupã · Projeto da Global Solution FIAP</p>
     </footer>
 </body>
+
 </html>
